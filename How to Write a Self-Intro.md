@@ -1,4 +1,5 @@
 # From Builder to Architect: A Guide to Writing Your Professional North Star
+
 ### 1. Identify Your "Engineering Antagonist"
 Every great voice starts by identifying a problem they are tired of solving.
  * **The Exercise:** Ask yourself, "What is a common industry practice that I find inefficient, outdated, or counter-productive?"
