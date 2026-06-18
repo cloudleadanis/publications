@@ -1,7 +1,7 @@
 # The Immutable Off‑Chain Backup
 *Best for: servers where the owner is most at risk of account compromise.*
 
-**Intro**  
+## Intro  
 You’ve spent months hand‑crafting your Discord server: the perfect role hierarchy, emoji that spark joy, and a bot that plays sea shanties on command. 
 
 #### A hacker doesn’t care.
@@ -41,29 +41,5 @@ I love checklists. So I've saved you hours of chaos, and built one just for you.
   *The Pi has no ability to delete the bucket – only write.*
 - [ ] **7. Test recovery** – From a clean Discord account, use the bot to restore the JSON backup into a test server.
 
-✅ **Outcome:** Attacker compromises your main Discord account? They cannot touch the backup.
-
----
-
-## Article 2 – The Trusted Moderator’s Git Backup
-*Best for: servers with at least one active, technically comfortable moderator.*
-
-**Intro**  
-You don’t trust anyone. I get it. But here’s the uncomfortable truth: the best backup isn’t a system—it’s a person who doesn’t reuse passwords and still updates their antivirus. This method hands the keys to a single moderator you’d trust with your Netflix login. No new hardware. No cloud bills. Just a private GitHub repo and a nightly cron job that whispers ‘I told you so’ when the owner’s token gets stolen. Yes, it requires admitting you’re not invincible. Do it anyway.
-
-### Step‑by‑Step Checklist
-- [ ] **1. Pick a “backup steward”** – A moderator who uses a clean, malware‑free device (not shared with the owner).
-- [ ] **2. Steward creates a new GitHub account** – Use a unique email, enable 2FA (TOTP app, not SMS).
-- [ ] **3. Steward creates a private GitHub repo** – Name it `server-backup-[servername]`.
-- [ ] **4. Steward generates a fine‑grained personal access token** – Scopes: `contents: write`, `metadata: read`. No admin org perms.
-- [ ] **5. Install `discord-backup` bot** – Invite the bot to your server with **Admin** perms (temporary, then reduce).  
-  *Or use `BetterDiscordBackup` open‑source tool.*
-- [ ] **6. Run the backup command on steward’s machine** –  
-  `node backup.js [serverID] [outputFolder]`  
-  This creates folder with `channels.json`, `roles.json`, `settings.json`.
-- [ ] **7. Automate nightly push** – Use a cron job (or Windows Task Scheduler) on steward’s machine:  
-  ```bash
-  cd /path/to/backup
-  git add .
-  git commit -m "nightly backup $(date)"
-  git push origin main
+### ✅ Outcome
+ Attacker compromises your main Discord account? They cannot touch the backup.
